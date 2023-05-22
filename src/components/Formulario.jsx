@@ -18,9 +18,8 @@ const Formulario = () => {
     }, [])
     
      const cargaInicio = ()=>{
-        const cargaDeTarea = datosDelLocalStorage;
-       setListadoTareas(  ...listadoTareas,
-        cargaDeTarea)        
+      const cargaDeTarea = datosDelLocalStorage;
+      setListadoTareas(  ...listadoTareas,cargaDeTarea)        
         
      }
     
