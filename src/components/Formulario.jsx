@@ -7,42 +7,33 @@ let tareaId = 0;
 const Formulario = () => {
     
     const [tarea, setTarea] = useState("");
-    const [listadoTareas, setListadoTareas] = useState([]);
-    const datosDelLocalStorage = JSON.parse( localStorage.getItem('myTarea'));
+    const datosDelLocalStorage = JSON.parse( localStorage.getItem('myTarea')) || [];
+    const [listadoTareas, setListadoTareas] = useState(datosDelLocalStorage);
     
 
     useEffect(() => {
-      if (datosDelLocalStorage) {
-        cargaInicio()
-      }
-    }, [])
+      localStorage.setItem("myTarea",JSON.stringify(listadoTareas))
+    }, [listadoTareas])
     
-     const cargaInicio = ()=>{
-      const cargaDeTarea = datosDelLocalStorage;
-      setListadoTareas(  ...listadoTareas,cargaDeTarea)        
-        
-     }
     
-    const agregarTarea = (e) => {
+    const handlerSubmit = (e) => {
        e.preventDefault(); 
-       let nuevaTarea = [
-            ...listadoTareas,
-            { id: tareaId++, tarea: tarea }
-        ]
-
        !tarea == ""
        ?
-            (setListadoTareas(nuevaTarea),
-            localStorage.setItem('myTarea', JSON.stringify(nuevaTarea)))
-            
+            (setListadoTareas([...listadoTareas,tarea]),
+            setTarea(""))
         :
             alert("debes agregar tarea");
-            
     };
     
+    const borrarTarea = (nombreTarea)=>{
+    let arregloFiltrado = listadoTareas.filter((itemTarea)=>itemTarea !== nombreTarea)
+    setListadoTareas(arregloFiltrado)
+    }
+
     return (
         <section>
-            <Form onSubmit={agregarTarea}>
+            <Form onSubmit={handlerSubmit}>
                 <Form.Group className="mb-3 d-flex " controlId="tarea">
                     <Form.Control 
                     className="me-5"
@@ -57,7 +48,7 @@ const Formulario = () => {
                     </Button>
                 </Form.Group>
                 
-              <ListaTareas listaTarea ={listadoTareas}  /> 
+              <ListaTareas listaTarea ={listadoTareas} borrarTarea= {borrarTarea}/> 
                   
             </Form>
         </section>
