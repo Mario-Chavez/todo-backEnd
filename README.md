@@ -1,4 +1,4 @@
-# Practica de React ejercicio 6
+# Practica de React ejercicio 5
 
 Dev Mario Chavez [GitHub](https://github.com/Mario-Chavez)
 
