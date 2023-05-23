@@ -2,7 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 import { useEffect, useState } from "react";
 
-let tareaId = 0;
+
 
 const Formulario = () => {
     
