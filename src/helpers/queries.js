@@ -1,9 +1,9 @@
-const URL_TARES = import.meta.env.VITE_API_TASKS;
+const URL_TAREAS = import.meta.env.VITE_API_TASKS;
 
 // traer tareas en la db
 export const showTarea = async () => {
     try {
-        const respuesta = await fetch(URL_TARES);
+        const respuesta = await fetch(URL_TAREAS);
         const resp = await respuesta.json();
         return resp;
     } catch (error) {
@@ -13,7 +13,7 @@ export const showTarea = async () => {
 // agregar tareas en la db
 export const addTarea = async (tarea) => {
     try {
-        const respuesta = await fetch(URL_TARES, {
+        const respuesta = await fetch(URL_TAREAS, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,6 +22,17 @@ export const addTarea = async (tarea) => {
         });
         const resp = await respuesta.json();
         return resp;
+    } catch (error) {
+        console.log(error);
+    }
+};
+export const deleteTarea = async (id) => {
+    try {
+        const respuesta = await fetch(`${URL_TAREAS}/${id}`, {
+            method: "DELETE",
+        });
+
+        return respuesta;
     } catch (error) {
         console.log(error);
     }

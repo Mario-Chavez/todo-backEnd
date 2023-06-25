@@ -1,10 +1,16 @@
 import { Button, Form } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 import { useEffect, useState } from "react";
-import { showTarea } from "../helpers/queries";
+import { addTarea, deleteTarea, showTarea } from "../helpers/queries";
+import { useForm } from "react-hook-form";
 
 const Formulario = () => {
-    const [tarea, setTarea] = useState("");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm();
 
     const [listadoTareas, setListadoTareas] = useState([]);
 
@@ -14,31 +20,30 @@ const Formulario = () => {
         });
     }, []);
 
-    const handlerSubmit = (e) => {
-        e.preventDefault();
-        !tarea == ""
-            ? (setListadoTareas([...listadoTareas, tarea]), setTarea(""))
-            : alert("debes agregar tarea");
-    };
-
-    const borrarTarea = (id) => {
-        console.log(id);
-        // let arregloFiltrado = listadoTareas.filter(
-        //     (itemTarea) => itemTarea !== nombreTarea
-        // );
-        // setListadoTareas(arregloFiltrado);
+    const onSubmit = (newTarea) => {
+        addTarea(newTarea).then((resp) => {
+            if (resp) {
+                showTarea().then((resp) => {
+                    setListadoTareas(resp);
+                });
+                reset();
+            } else {
+                console.log("no se pudo agregar");
+            }
+        });
     };
 
     return (
         <section>
-            <Form onSubmit={handlerSubmit}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3 d-flex " controlId="tarea">
                     <Form.Control
                         className="me-5"
                         type="text"
                         placeholder="Escribe tu tarea"
-                        onChange={(e) => setTarea(e.target.value)}
-                        value={tarea}
+                        {...register("title", {
+                            required: "este campo es obligatorio",
+                        })}
                     />
 
                     <Button className="ms-5" variant="primary" type="submit">
@@ -46,7 +51,10 @@ const Formulario = () => {
                     </Button>
                 </Form.Group>
 
-                <ListaTareas listaTarea={listadoTareas} borrarTarea={borrarTarea} />
+                <ListaTareas
+                    listaTarea={listadoTareas}
+                    setListadoTareas={setListadoTareas}
+                />
             </Form>
         </section>
     );
