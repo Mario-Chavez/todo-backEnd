@@ -1,12 +1,14 @@
 {
-    "tareas":[
-    {
-        "tarea": "Estidiar",
-        "id":1
-    },
-    {
-        "tarea": "Leer",
-        "id":2
-    }
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Hacer la compra",
+        "completed": false
+      },
+      {
+        "id": 2,
+        "title": "Llamar al médico",
+        "completed": false
+      }
     ]
-}
+  }
