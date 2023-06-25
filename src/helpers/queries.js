@@ -1,7 +1,7 @@
 const URL_TARES = import.meta.env.VITE_API_TASKS;
 
 // traer tareas en la db
-const showTarea = async () => {
+export const showTarea = async () => {
     try {
         const respuesta = await fetch(URL_TARES);
         const resp = await respuesta.json();
@@ -11,7 +11,7 @@ const showTarea = async () => {
     }
 };
 // agregar tareas en la db
-const addTarea = async (tarea) => {
+export const addTarea = async (tarea) => {
     try {
         const respuesta = await fetch(URL_TARES, {
             method: "POST",
