@@ -1,0 +1,12 @@
+{
+    "tareas":[
+    {
+        "tarea": "Estidiar",
+        "id":1
+    },
+    {
+        "tarea": "Leer",
+        "id":2
+    }
+    ]
+}
