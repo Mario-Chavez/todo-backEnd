@@ -1,14 +1,16 @@
 {
-    "tasks": [
-      {
-        "id": 1,
-        "title": "Hacer la compra",
-        "completed": false
-      },
-      {
-        "id": 2,
-        "title": "Llamar al médico",
-        "completed": false
-      }
-    ]
-  }
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Hacer la compra"
+    },
+    {
+      "id": 2,
+      "title": "Llamar al médico"
+    },
+    {
+      "title": "escribir un libro",
+      "id": 3
+    }
+  ]
+}
