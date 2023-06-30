@@ -37,3 +37,18 @@ export const deleteTarea = async (id) => {
         console.log(error);
     }
 };
+export const editTarea = async (id, tarea) => {
+    try {
+        const respuesta = await fetch(`${URL_TAREAS}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(tarea),
+        });
+
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+};
