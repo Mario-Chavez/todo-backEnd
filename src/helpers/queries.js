@@ -10,6 +10,16 @@ export const showTarea = async () => {
         console.log(error);
     }
 };
+//buscar tarea por id
+export const getTareaId = async (id) => {
+    try {
+        const respuesta = await fetch(`${URL_TAREAS}/${id}`);
+        const resp = await respuesta.json();
+        return resp;
+    } catch (error) {
+        console.log(error);
+    }
+};
 // agregar tareas en la db
 export const addTarea = async (tarea) => {
     try {

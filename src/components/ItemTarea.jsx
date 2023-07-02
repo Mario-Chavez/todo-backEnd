@@ -18,16 +18,7 @@ const ItemTarea = ({ tarea, id, setListadoTareas }) => {
             }
         });
     };
-    const editarTarea = (id, tarea) => {
-        console.log(tarea, id);
-        // editTarea(id).then((resp) => {
-        //     if (resp && resp.status === 200) {
-        //         showTarea().then((resp) => {
-        //             setListadoTareas(resp);
-        //         });
-        //     }
-        // });
-    };
+
     return (
         <>
             <ListGroup.Item className="d-flex justify-content-between">
@@ -46,6 +37,7 @@ const ItemTarea = ({ tarea, id, setListadoTareas }) => {
                 handleClose={handleClose}
                 tarea={tarea}
                 setListadoTareas={setListadoTareas}
+                id={id}
             />
         </>
     );
