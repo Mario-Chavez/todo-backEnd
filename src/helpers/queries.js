@@ -10,6 +10,16 @@ export const showTarea = async () => {
         console.log(error);
     }
 };
+//buscar tarea por id
+export const getTareaId = async (id) => {
+    try {
+        const respuesta = await fetch(`${URL_TAREAS}/${id}`);
+        const resp = await respuesta.json();
+        return resp;
+    } catch (error) {
+        console.log(error);
+    }
+};
 // agregar tareas en la db
 export const addTarea = async (tarea) => {
     try {
@@ -30,6 +40,21 @@ export const deleteTarea = async (id) => {
     try {
         const respuesta = await fetch(`${URL_TAREAS}/${id}`, {
             method: "DELETE",
+        });
+
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+};
+export const editTarea = async (id, tarea) => {
+    try {
+        const respuesta = await fetch(`${URL_TAREAS}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(tarea),
         });
 
         return respuesta;

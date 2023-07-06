@@ -1,53 +1,56 @@
-# Aplicación de ToDo con React Bootstrap y JSON Server
+# Lista de Tareas
 
-Esta es una aplicación de lista de tareas (ToDo) desarrollada utilizando React, React Bootstrap y JSON Server. La aplicación permite a los usuarios crear, leer, actualizar y eliminar tareas.
+¡Bienvenido(a) al proyecto Lista de Tareas! En este documento encontrarás información importante sobre cómo configurar, ejecutar y contribuir a este proyecto.
 
-## Requisitos previos
+## Descripción
 
-Asegúrate de tener instalado lo siguiente en tu sistema:
+El proyecto Lista de Tareas es una aplicación web desarrollada en React que te permite gestionar tus tareas diarias. Puedes agregar nuevas tareas, marcarlas como completadas y eliminarlas cuando ya no sean necesarias. La aplicación tiene una interfaz fácil de usar y está diseñada para ayudarte a organizar tus actividades de manera eficiente.
 
--   Node.js: https://nodejs.org (versión recomendada: LTS)
--   NPM: Viene incluido con Node.js, pero se recomienda verificar si está actualizado ejecutando `npm install -g npm`
--   ## Configuración inicial
+## Tecnologías Utilizadas
 
-Sigue estos pasos para configurar el proyecto en tu entorno local:
+-   React
+-   Vite
+-   React Bootstrap
+-   Bootstrap
+-   CSS
 
-1. Clona el repositorio desde GitHub: `git clone https://github.com/Mario-Chavez/todo-backEnd.git`
-2. Navega al directorio del proyecto: `cd todo-backEnd`
-3. Instala las dependencias del proyecto: `npm install`
+## Requisitos Previos
 
-## Configuración de la base de datos JSON Server
+-   Node.js instalado
+-   Conexión a Internet para acceder a la base de datos MongoDB
 
-Sigue estos pasos para configurar el proyecto en tu entorno local:
+## Instalación
 
-1. Crea un archivo `db.json` en la raíz del proyecto.
-2. Define la estructura inicial de la base de datos en el archivo `db.json.` Por ejemplo:
+1. Clona el repositorio: `git clone https://github.com/Mario-Chavez/todo-backEnd.git`
+2. Ve al directorio del proyecto: `cd todo-backEnd`
+3. Instala las dependencias: `npm install`
 
-```javascript
-{
-  "tasks": [
-    {
-      "id": 1,
-      "title": "Hacer la compra",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "title": "Llamar al médico",
-      "completed": false
-    }
-  ]
-}
+## Configuración
 
-```
+1. Abre el archivo `src/config.js`.
+2. Configura los valores necesarios para la conexión a la base de datos MongoDB.
 
-## comando para ejecutar json server
+## Uso
 
-json-server --watch db.json --port 3004
+1. Ejecuta la aplicación en modo de desarrollo: `npm run dev`.
+2. Abre el navegador e ingresa a `http://localhost:3000`.
 
-## ¡Visita mi sitio Aqui!
+## Contribución
 
-[Lista de Tareas](https://ytodo-back.netlify.app/)
+Si quieres contribuir a este proyecto y mejorarlo, sigue los siguientes pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu contribución: `git checkout -b mi-rama`.
+3. Realiza tus cambios y commits: `git commit -m "Descripción de los cambios"`.
+4. Haz un push a tu rama: `git push origin mi-rama`.
+5. Abre una pull request en el repositorio original.
+
+## Contacto
+
+Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo:
+
+-   Nombre: Mario Chavez
+-   Email: marioachavez1@gmail.com
 
 ## Desarrollador
 

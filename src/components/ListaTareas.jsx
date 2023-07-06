@@ -6,9 +6,9 @@ const ListaTareas = ({ listaTarea, setListadoTareas }) => {
         <ListGroup>
             {listaTarea.map((tarea) => (
                 <ItemTarea
-                    key={tarea.id}
+                    key={tarea._id}
                     tarea={tarea.title}
-                    id={tarea.id}
+                    id={tarea._id}
                     setListadoTareas={setListadoTareas}
                 ></ItemTarea>
             ))}
